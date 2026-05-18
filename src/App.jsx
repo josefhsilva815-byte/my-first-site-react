@@ -15,7 +15,7 @@ function App() {
     `,
     
     
-    testStyle:(<o className="" />)
+    testStyle:(<o className="text-right justify-items-start"/>)
   }
 
 
@@ -24,8 +24,9 @@ function App() {
       <h1 className={stl.h1}>Calculadora</h1>
 
       <div className="grid w-1/3 h-3/6 grid-cols-4 grid-rows-6 gap-1 ">
-        <Input tp="text" ph="Digite um número" cls="border border-black col-span-4"/>
-        <Output tp="text" ph="Resultado" cls="border border-black bg-transparent col-span-4"/>
+        <Input tp="text" ph="Digite" cls={`flex h-full text-left p-2 col-start-1 col-end-5 row-start-1 ${stl.borda}`}/>
+        <Output tp="text" ph="Resultado" cls={`self-end pr-2 pb-2 text-end h-6 bg-transparent col-start-1 col-end-5 row-start-1 outline-none`}/>
+
         <Botao btn="1" cls={`${stl.borda}`}/>
         <Botao btn="2" cls={`${stl.borda}`}/>
         <Botao btn="3" cls={`${stl.borda}`}/>
