@@ -21,7 +21,7 @@ function App() {
     
     testStyle:(<o 
       className='
-        text-wrap
+      h-
       '
     />)
   }
@@ -32,17 +32,16 @@ function App() {
   function handclick(input) {
     const {value, textContent} = input.target;
     setDisplayIn((preValue) => {
-      if(value) return value
+      if(value) { return value };
       if(textContent) return preValue ? preValue + textContent : textContent
     });
-    console.log(displayIn)
   }
 
   function limpar() { // Limpar todo conteúdo da tela da calculdora
     setDisplayIn("")
   }
   function apagar() { // Apagar o último caracter
-    alert(displayIn.length)
+    setDisplayIn((preValue) => preValue.slice(0, -1));
   }
   function calcular() { // Resolve a expressão aritmética digitada
   }
@@ -51,7 +50,7 @@ function App() {
     <div className={stl.main}>
       <h1 className={stl.h1}>Calculadora</h1>
 
-      <div className="grid w-1/3 h-3/6 grid-cols-4 grid-rows-6 gap-1 ">
+      <div className="grid w-auto h-3/6 grid-cols-4 grid-rows-6 gap-1 ">
         <Input 
         value={displayIn}
         input={(e) => handclick(e)} 
