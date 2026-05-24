@@ -39,11 +39,17 @@ function App() {
 
   function limpar() { // Limpar todo conteúdo da tela da calculdora
     setDisplayIn("")
+    setDisplayOut("")
   }
   function apagar() { // Apagar o último caracter
     setDisplayIn((preValue) => preValue.slice(0, -1));
+    setDisplayOut("")
   }
   function calcular() { // Resolve a expressão aritmética digitada
+    if(["+","-","*","/"].includes(displayIn.slice(-1))) {
+      // console.log(displayIn.slice(-1))
+      setDisplayOut("")
+    } else setDisplayOut(() => eval(displayIn)); 
   }
 
   return (
@@ -99,7 +105,7 @@ function App() {
         <Botao click={(e) => handclick(e)} ctn="+" classe={`${stl.botao} ${stl.borda} col-start-2 row-start-2`}/>
         <Botao click={(e) => handclick(e)} ctn="-" classe={`${stl.botao} ${stl.borda} col-start-3 row-start-2`}/>
         <Botao click={(e) => handclick(e)} ctn="/" classe={`${stl.botao} ${stl.borda} col-start-4 row-start-3`}/>
-        <Botao click={(e) => handclick(e)} ctn="x" classe={`${stl.botao} ${stl.borda} col-start-4 row-start-4`}/>
+        <Botao click={(e) => handclick(e)} ctn="*" classe={`${stl.botao} ${stl.borda} col-start-4 row-start-4`}/>
         <Botao click={(e) => handclick(e)} ctn="." classe={`${stl.botao} ${stl.borda} col-start-1 row-start-6`}/>
         <Botao click={(e) => handclick(e)} ctn="%" classe={`${stl.botao} ${stl.borda} col-start-3 row-start-6`}/>
 
