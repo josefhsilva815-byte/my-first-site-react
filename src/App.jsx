@@ -54,9 +54,11 @@ function App() {
 
       // Se "value" possuir algum valor ele é "true", então vamos retornar algo.
       if(value) {
+        // Verificar se o último caractere digitado é o sinal de igual, se for então vamos chamar a função "calcularComEval()" e retornar o próprio conteúdo do display.
+        if(value[value.length-1] === "=") {calculaComEval(); return preValue};
         // Retornaremos um valor baseado em um ifterário.
         // Aqui verificamos se o último caractere, ou seja, o que acabamos de digitar, é uma operação("+","-","/","*") ou(||) um número(>= 0), seja qual for retornamos "value". Porém se for uma letra, por exemplo, ira ser "false" em ambas as verificações, retornando assim nada(""). 
-        return ["+","-","/","*"].includes(value[value.length-1]) || parseFloat(value) >= 0 ? value : ""
+        return (["+","-","/","*"].includes(value[value.length-1]) || parseFloat(value[value.length-1]) >= 0) ? value : ""
       }
     });
   }
